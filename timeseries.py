@@ -70,9 +70,6 @@ def do_lsr(line):
     print("Alpha: ",alpha)
     print("Beta: ",beta)
 
-def do_blah(line):
-    print("OK",line)
-
 def do_default(line):
     print("What!?")
 
@@ -80,9 +77,9 @@ commands={
 'print':do_print,
 'load':do_load,
 'show':do_show,
-'blah':do_blah,
 'quit':do_quit,
-'lsr': do_lsr
+'lsr': do_lsr,
+'mean':do_mean
 }
 
 if __name__ == '__main__':
