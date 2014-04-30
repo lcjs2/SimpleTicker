@@ -49,12 +49,18 @@ class ticker:
         for x in self.data:
             print(x)
 
+    #Functions that return data from a particular day
+    def close(self, day=-1):
+        if day<0:
+            day=self.length()+day
+        return self.data[day].close
+
     # Functions that return lists
-    def close(self, start=0, end=None):
+    def close_list(self, start=0, end=None):
         if end==None:
             end=len(self.data)
         return [x.close for x in self.data[start: end]]
-    def volume(self, start=0, end=None):
+    def volume_list(self, start=0, end=None):
          if end==None:
             end=len(self.data)
          return [x.volume for x in self.data[start: end]]

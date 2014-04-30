@@ -10,12 +10,15 @@ start_date=end_date-timedelta(days=365)
 def main():
     t = load_ticker("AAPL", start_date, end_date)
 
-    print("Mean closing price: ", mean(t.close()))
-    print("Mean volume: ", mean(t.volume()))
-    alpha, beta = linear_regression(t.close())
+    print("Mean closing price: ", mean(t.close_list()))
+    print("Mean volume: ", mean(t.volume_list()))
+    alpha, beta = linear_regression(t.close_list())
     print("Alpha: ",alpha," Beta: ",beta)
-    m, sd = estimate_m_sd(t.close(),251)
-    print("mu",m,"sigma",sd)
+    mu, sigma = estimate_mu_sigma(t.close_list(),251)
+    print("mu",mu,"sigma",sigma)
+    print("BS data",t.close(-1),500,0.02,sigma,10)
+    bs_out=BS(t.close(-1),290,0,sigma,10)
+    print("BS",bs_out)
 
 
 
