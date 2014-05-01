@@ -1,6 +1,6 @@
 from urllib.request import *
 from datetime import date, datetime
-import pylab
+#import pylab
 
 class ticker_day:
     def __init__(self,date=date.today(),opn=1,high=1,low=1,close=1,volume=0, adj_close=1):
@@ -49,12 +49,12 @@ class ticker:
         print(self)
         for x in self.data:
             print(x)
-    def show(self):
-        dates=[x.date for x in self.data]
-        closes=[x.close for x in self.data]
-        pylab.figure(1)
-        pylab.plot(dates,closes)
-        pylab.show()
+##    def show(self):
+##        dates=[x.date for x in self.data]
+##        closes=[x.close for x in self.data]
+##        pylab.figure(1)
+##        pylab.plot(dates,closes)
+##        pylab.show()
 
     #Functions that return data from a particular day
     def close(self, day=-1):
