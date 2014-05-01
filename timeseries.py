@@ -62,6 +62,14 @@ def do_mean(line):
     t=get_ticker(symbol)
     print("Mean closing price:", mean(t.close_list()))
 
+def do_bs_call(line):
+    get_BS_data(line)
+    #print("Call option:", BS(S,K,r,sigma,T))
+
+def do_bs_put(line):
+    get_BS_data(line)
+    #print("Put option:", BS(S,K,r,sigma,T))
+
 def do_lsr(line):
     symbol, line=next_word(line)
     t=get_ticker(symbol)
@@ -79,7 +87,9 @@ commands={
 'show':do_show,
 'quit':do_quit,
 'lsr': do_lsr,
-'mean':do_mean
+'mean':do_mean,
+'call':do_bs_call,
+'put':do_bs_put
 }
 
 if __name__ == '__main__':
