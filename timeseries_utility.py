@@ -38,7 +38,7 @@ def parse_line(line, vars={}):
 
 
 
-def get_BS_data(line):
+def get_bs_data(line):
     vars={
     's':'Spot price',
     'k':'Strike price',
@@ -47,4 +47,9 @@ def get_BS_data(line):
     't':'Time to expiry'
     }
     pairs=parse_line(line, vars)
-    print('After:',pairs)
+    s=float(pairs['s'])
+    k=float(pairs['k'])
+    r=float(pairs['r'])
+    sigma=float(pairs['sigma'])
+    t=float(pairs['t'])
+    return s,k,r,sigma,t

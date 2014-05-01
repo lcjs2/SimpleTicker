@@ -63,12 +63,12 @@ def do_mean(line):
     print("Mean closing price:", mean(t.close_list()))
 
 def do_bs_call(line):
-    get_BS_data(line)
-    #print("Call option:", BS(S,K,r,sigma,T))
+    s,k,r,sigma,t=get_bs_data(line)
+    print("Call option:", bs(s,k,r,sigma,t))
 
 def do_bs_put(line):
-    get_BS_data(line)
-    #print("Put option:", BS(S,K,r,sigma,T))
+    s,k,r,sigma,t=get_bs_data(line)
+    print("Put option:", bs(s,k,r,sigma,t))
 
 def do_lsr(line):
     symbol, line=next_word(line)

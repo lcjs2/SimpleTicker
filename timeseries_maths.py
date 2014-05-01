@@ -28,18 +28,18 @@ def estimate_mu_sigma(x, past_steps=10):
     mu=mean(log_returns) + (sigma**2)/2
     return mu, sigma
 
-def BS(S,K,r,sigma,T):
-    d1=BS_d1(S,K,r,sigma,T)
-    d2=BS_d2(S,K,r,sigma,T)
+def bs(S,K,r,sigma,T):
+    d1=bs_d1(S,K,r,sigma,T)
+    d2=bs_d2(S,K,r,sigma,T)
     return phi(d1)*S - phi(d2)*K*exp(-r*T)
 
-def BS_d1(S,K,r,sigma,T):
+def bs_d1(S,K,r,sigma,T):
     out = log(S/K) + (r + (sigma**2)/2)*(T)
     out /= sigma*sqrt(T)
     return out
 
-def BS_d2(S,K,r,sigma,T):
-    return BS_d1(S,K,r,sigma,T) - sigma*sqrt(T)
+def bs_d2(S,K,r,sigma,T):
+    return bs_d1(S,K,r,sigma,T) - sigma*sqrt(T)
 
 def erf(x):
     # Error function
