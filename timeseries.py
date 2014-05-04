@@ -12,6 +12,9 @@ start_date=end_date-timedelta(days=365)
 tickers=[]
 
 def main():
+    #a=[690, 650,560,550,540,530,520,490,460,340]
+    #b=[0.05,0.2,33, 42, 52, 62, 72, 102,132,252]
+    #plot(a,[implied_vol(592,a[i],0,5,b[i]) for i in range(len(a))])
     while(True):
         line=input(">")
         command, line=next_word(line)

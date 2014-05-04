@@ -1,4 +1,9 @@
 from math import *
+import matplotlib.pyplot as pyplot
+
+def plot(x,y):
+    pyplot.plot(x,y)
+    pyplot.show()
 
 def mean(x):
     total=0
@@ -59,3 +64,20 @@ def erf(x):
 def phi(x):
     # Cumulative normal distribution
     return (1+erf(x/sqrt(2)))/2
+
+def implied_vol(S,K,r,T,price):
+    f=lambda x: bs(S,K,r,x,T)-price
+    return root_finder(f,0.00001,1)
+
+def root_finder(f,a,b, d=0.00001):
+    # Performs interval bisection to find roots
+    if f(a)*f(b)>0: print("Root finder given interval (",a,b,") both same sign")
+    if f(a)>f(b): a,b=b,a
+    while(b-a>d):
+        c=(b+a)/2
+        if f(c)>0:
+            b=c
+        else:
+            a=c
+    return a
+
